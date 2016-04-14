@@ -32,11 +32,11 @@
         <div class="uk-form-row uk-text-small">
           <a class="uk-link uk-link-muted" v-link="'/auth/login'">Login Instead?</a>
         </div>
-<!--
+
         <div class="uk-form-row uk-text-small">
           {{ credentials | json }}
         </div>
- -->
+
       </div>
     </div>
   </div>

@@ -2,61 +2,37 @@
   <menu admin="uk-active"></menu>
   <tab-menu users="uk-active"></tab-menu>
 
-  <h2>List of Users</h2>
-  <table class="uk-table">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Date Created</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="user in users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.first_name }}</td>
-      <td>{{ user.last_name }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.realm }}</td>
-      <td>{{ user.date_created | moment "calendar" }}</td>
-      <td>
-        <button class="uk-button uk-button-mini uk-button-primary">Edit</button>
-      </td>
-    </tr>
-  </tbody>
-  </table>
+  <list-users></list-users>
+  <edit-user></edit-user>
+
 </template>
 
 <script>
-import admin from '../../api/admin/index.js'
-
-import TabMenu from './TabMenu'
 import Menu from '../Menu'
+import TabMenu from './TabMenu'
+import ListUsers from './users/ListUsers'
+import EditUser from './users/EditUser'
 
 export default {
-  ready () {
-    console.log('initing users...')
-    this.getAllUsers()
-  },
-
   data () {
     return {
-      users: []
+      is_edit: false
     }
   },
-
-  methods: {
-    getAllUsers () {
-      admin.getAllUsers(this)
-    }
-  },
-
   components: {
-    TabMenu, Menu
+    TabMenu, Menu, ListUsers, EditUser
+  },
+  events: {
+    'edit': function (user) {
+      this.$broadcast('edit', user)
+      return true
+    },
+    'listing': function (obj) {
+      this.$broadcast('listing', obj)
+    },
+    'editing': function (obj) {
+      this.$broadcast('editing', obj)
+    }
   }
 }
 </script>

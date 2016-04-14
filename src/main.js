@@ -10,6 +10,8 @@ import Register from './components/auth/Register'
 import Forgot from './components/auth/Forgot'
 
 import Admin from './components/admin/Admin'
+
+// users admin
 import Users from './components/admin/Users'
 import Settings from './components/admin/Settings'
 import Blogs from './components/admin/Blogs'
@@ -41,6 +43,9 @@ router.map({
       },
       '/logout': {
         component: Logout
+      },
+      '*': {
+        component: Login
       }
     }
   },
@@ -58,13 +63,18 @@ router.map({
       },
       '/posts': {
         component: Posts
+      },
+      '*': {
+        component: Users
       }
     }
   }
 })
 
 router.redirect({
-  '*': '/'
+  '*': '/',
+  '/admin': '/admin/users',
+  '/auth': '/auth/login'
 })
 
 router.start(App, '#app')

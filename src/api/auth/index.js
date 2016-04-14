@@ -24,20 +24,20 @@ export default {
   },
 
   login (context, creds, redirect) {
-    console.log('Loggin in user ' + JSON.stringify(creds))
-    context.$http.get(EMAIL_QUERY + creds.email).then(function (resp) {
+    // console.log('Loggin in user ' + JSON.stringify(creds.email))
+    context.$http.get(EMAIL_QUERY + '"' + creds.email + '"').then(function (resp) {
       // success
-      console.log('resp.data: ' + resp.data)
+      // console.log('resp.data: ' + resp.data)
       if (resp.data !== undefined) {
         var found = resp.data.response.numFound
         if (found) {
-          console.log('Response: ' + JSON.stringify(resp.data.response.docs))
+          // console.log('Response: ' + JSON.stringify(resp.data.response.docs))
           var hashpass = resp.data.response.docs[0].password
           var pass = HASH(creds.password, SECRET_KEY)
 
           if (pass === hashpass) {
             // ok, good
-            console.log('User password is good...')
+            // console.log('User password is good...')
             window.localStorage.setItem('auth', JSON.stringify({email: creds.email}))
             router.go(redirect)
           } else {
@@ -57,9 +57,9 @@ export default {
   },
 
   register (context, creds, redirect) {
-    console.log('Checking user status...')
-    context.$http.get(EMAIL_QUERY + creds.email).then(function (resp) {
-      console.log('user_has_registered: ' + resp.data.response.numFound)
+    // console.log('Checking user status...' + JSON.stringify(creds.email))
+    context.$http.get(EMAIL_QUERY + '"' + creds.email + '"').then(function (resp) {
+      // console.log('user_has_registered: ' + JSON.stringify(resp.data.response))
       if (resp.data.response.numFound === 0) {
         // ok, we can register the user
         var userdata = {
@@ -73,9 +73,9 @@ export default {
           date_updated: new Date()
         }
 
-        console.log('Registering user ' + JSON.stringify(creds))
+        // console.log('Registering user ' + JSON.stringify(creds))
         context.$http.post(UPDATE_SINGLE_URL, userdata, this.options).then(function (resp) {
-          console.log('Registration Response: ' + JSON.stringify(resp.data))
+          // console.log('Registration Response: ' + JSON.stringify(resp.data))
           if (resp.data.responseHeader.status === 0) {
             // ok, registering is a success
             router.go(redirect)
