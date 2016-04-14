@@ -3,16 +3,16 @@
     <a class="uk-navbar-brand uk-hidden-small" href=""><img class="logo" src="../assets/logo.png"></a>
     <ul class="uk-navbar-nav uk-hidden-small">
       <li class="{{ home }}">
-        <a v-link="'/'">Home</a>
+        <a v-link="{path: '/'}">Home</a>
       </li>
       <li class="{{ admin }}" v-show="!not_logged_in">
-        <a v-link="'/admin/users'">Admin</a>
+        <a v-link="{path: '/admin/users'}">Admin</a>
       </li>
       <li class="{{ dashboard }}">
-        <a v-link="'/'">Dashboard</a>
+        <a v-link="{path: '/'}">Dashboard</a>
       </li>
       <li class="{{ posts }}">
-        <a v-link="'/'">Posts</a>
+        <a v-link="{path: '/'}">Posts</a>
       </li>
     </ul>
     <div class="uk-navbar-flip">

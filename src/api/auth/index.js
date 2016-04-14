@@ -3,11 +3,9 @@ import {router} from '../../main'
 
 const HASH = require('hashit')
 const SECRET_KEY = '9e408b35-f84c-4135-97be-c73c2cee1fbe'
-
 const USER_URL = 'http://localhost:8983/solr/users'
 const EMAIL_QUERY = USER_URL + '/select?wt=json&indent=on&q=email:'
 const UPDATE_SINGLE_URL = USER_URL + '/update/json/docs?commit=true'
-
 const INVALID_PASSWD = 'Invalid username, or password'
 
 export default {
