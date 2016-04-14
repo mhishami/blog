@@ -11,7 +11,7 @@
     <h2>Edit User</h2>
     <pre>{{ user | json }}</pre>
 
-    <button class="uk-button uk-button-primary" @click="updateUser()">Done</button>
+    <button class="uk-button uk-button-primary uk-float-right" @click="updateUser()">Done</button>
   </div>
 
 </template>

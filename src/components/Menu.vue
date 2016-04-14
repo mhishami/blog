@@ -5,7 +5,7 @@
       <li class="{{ home }}">
         <a v-link="'/'">Home</a>
       </li>
-      <li class="{{ admin }}">
+      <li class="{{ admin }}" v-show="!not_logged_in">
         <a v-link="'/admin/users'">Admin</a>
       </li>
       <li class="{{ dashboard }}">
