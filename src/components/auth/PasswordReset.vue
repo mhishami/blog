@@ -30,7 +30,7 @@
           </button>
         </div>
         <div class="uk-form-row uk-text-small">
-          <a class="uk-link uk-link-muted" v-link="'/login'">Login Instead?</a>
+          <a class="uk-link uk-link-muted" v-link="'/auth/login'">Login Instead?</a>
         </div>
       </div>
     </div>

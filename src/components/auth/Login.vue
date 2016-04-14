@@ -23,12 +23,12 @@
           </button>
         </div>
         <div class="uk-form-row uk-text-small">
-          <a class="uk-link uk-link-muted" v-link="'/register'">Register Instead?</a>
+          <a class="uk-link uk-link-muted" v-link="'/auth/register'">Register Instead?</a>
           <a class="uk-link uk-link-muted" @click="deleteAllUsers()">Delete All Users</a>
         </div>
         <div class="uk-form-row uk-text-small">
           <label class="uk-float-left"><input type="checkbox" /> Remember me</label>
-          <a class="uk-float-right uk-link uk-link-muted" v-link="'/forgot'">Forgot Password</a>
+          <a class="uk-float-right uk-link uk-link-muted" v-link="'/auth/forgot'">Forgot Password</a>
         </div>
 <!--
         <div class="uk-form-row uk-text-small uk-alert-success">

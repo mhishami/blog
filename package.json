@@ -14,7 +14,8 @@
   "dependencies": {
     "babel-runtime": "^5.8.0",
     "hashit": "0.0.2",
-    "vue": "^1.0.18"
+    "vue": "^1.0.18",
+    "vue-moment": "^1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -68,6 +69,7 @@
     "vue-resource": "^0.7.0",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
+    "vue-validator": "^2.0.1",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",

@@ -65,7 +65,12 @@ export default {
         var userdata = {
           email: creds.email,
           password: HASH(creds.password, SECRET_KEY),
-          realm: 'user'
+          realm: 'user',
+          first_name: '',
+          last_name: '',
+          contact: '',
+          date_created: new Date(),
+          date_updated: new Date()
         }
 
         console.log('Registering user ' + JSON.stringify(creds))

@@ -1,5 +1,5 @@
 <template>
-  <menu></menu>
+  <menu home="uk-active"></menu>
   <hello></hello>
 </template>
 
