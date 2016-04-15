@@ -15,6 +15,7 @@
     "babel-runtime": "^5.8.0",
     "hashit": "0.0.2",
     "vue": "^1.0.18",
+    "vue-file-upload": "0.0.3",
     "vue-moment": "^1.0.7"
   },
   "devDependencies": {

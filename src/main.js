@@ -16,6 +16,7 @@ import Users from './components/admin/Users'
 import Settings from './components/admin/Settings'
 import Blogs from './components/admin/Blogs'
 import Posts from './components/admin/Posts'
+import Media from './components/admin/Media'
 
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
@@ -68,6 +69,9 @@ router.map({
         component: Users
       }
     }
+  },
+  '/media': {
+    component: Media
   }
 })
 

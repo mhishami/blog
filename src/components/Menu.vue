@@ -14,6 +14,9 @@
       <li class="{{ posts }}">
         <a v-link="{path: '/'}">Posts</a>
       </li>
+      <li class="{{ media }}">
+        <a v-link="{path: '/media'}">Media</a>
+      </li>
     </ul>
     <div class="uk-navbar-flip">
       <div class="uk-navbar-content">
@@ -46,13 +49,19 @@
     <div class="uk-offcanvas-bar">
       <ul class="uk-nav uk-nav-offcanvas">
         <li class="{{ home }}">
-          <a v-link="'/'">Home</a>
+          <a v-link="{path: '/'}">Home</a>
+        </li>
+        <li class="{{ admin }}" v-show="!not_logged_in">
+          <a v-link="{path: '/admin/users'}">Admin</a>
         </li>
         <li class="{{ dashboard }}">
-          <a v-link="'/'">Dashboard</a>
+          <a v-link="{path: '/'}">Dashboard</a>
         </li>
         <li class="{{ posts }}">
-          <a v-link="'/'">Posts</a>
+          <a v-link="{path: '/'}">Posts</a>
+        </li>
+        <li class="{{ media }}">
+          <a v-link="{path: '/media'}">Media</a>
         </li>
       </ul>
     </div>
@@ -73,7 +82,7 @@ export default {
     }
   },
 
-  props: ['home', 'admin', 'dashboard'],
+  props: ['home', 'admin', 'dashboard', 'media'],
 
   data () {
     return {
@@ -84,7 +93,6 @@ export default {
 
   events: {
     'logged_out': function (obj) {
-      console.log('Menu got event....' + obj)
     }
   },
 

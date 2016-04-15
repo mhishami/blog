@@ -26,7 +26,7 @@
           <td>{{ index }}</td>
           <td>{{ user.first_name }}</td>
           <td>{{ user.last_name }}</td>
-          <td>{{ user.email }}</td>
+          <td>{{ user.id }}</td>
           <td>{{ user.realm }}</td>
           <td>{{ user.date_created | moment "calendar" }}</td>
           <td>
@@ -49,20 +49,17 @@ export default {
   ready () {
     this.getAllUsers()
   },
-
   data () {
     return {
       users: [],
       is_listing: true
     }
   },
-
   events: {
     'listing': function (obj) {
       this.is_listing = obj
     }
   },
-
   methods: {
     getAllUsers () {
       admin.getAllUsers(this)

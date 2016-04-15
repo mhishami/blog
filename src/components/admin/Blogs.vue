@@ -3,6 +3,7 @@
   <tab-menu blogs="uk-active"></tab-menu>
 
   <h2>Blogs</h2>
+  <button class="uk-button uk-button-success" @click="modalOpen()"></button>
 </template>
 
 <script>
@@ -16,6 +17,11 @@ export default {
 
   components: {
     TabMenu, Menu
+  },
+
+  methods: {
+    modalOpen () {
+    }
   }
 }
 </script>

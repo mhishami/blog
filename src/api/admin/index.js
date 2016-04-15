@@ -20,19 +20,13 @@ export default {
     })
   },
 
-  updateUserDetails (context, user, image) {
-    var data = {
-      id: user.id,                // req
-      email: user.email,          // req
-      password: user.password,    // req
-      realm: user.realm,          // req
-      first_name: user.first_name,
-      last_name: user.last_name,
-      updated_at: new Date(),
-      image: image
-    }
-    console.log('Updating user: ' + JSON.stringify(data))
-    context.$http.post(UPDATE_USER, data, this.options).then(function (resp) {
+  updateUserDetails (context, user) {
+    console.log('User: ' + JSON.stringify(user))
+    user.updated_at = new Date()
+    delete user._version_   // this will be created again
+
+    console.log('Updated user: ' + JSON.stringify(user))
+    context.$http.post(UPDATE_USER, user, this.options).then(function (resp) {
       console.log('Response: ' + JSON.stringify(resp.data))
     }, function (error) {
       console.log('Error: ' + JSON.stringify(error))
